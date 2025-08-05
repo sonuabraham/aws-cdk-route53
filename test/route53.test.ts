@@ -9,7 +9,7 @@ const env = {
 
 test("Should create hosted zone for cdk.api.aremedia.net.au", () => {
   const app = new cdk.App();
-  const stack = new Route53Stack(app, "MyTestStack", { env });
+  const stack = new Route53Stack(app, "Route53TestStack", { env });
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties("AWS::Route53::HostedZone", {
@@ -22,7 +22,7 @@ test("Should create hosted zone for cdk.api.aremedia.net.au", () => {
 
 test("Should create A record for www subdomain with 127.0.0.1 in cdk.api.aremedia.net.au hosted zone", () => {
   const app = new cdk.App();
-  const stack = new Route53Stack(app, "MyTestStack", { env });
+  const stack = new Route53Stack(app, "Route53TestStack", { env });
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties("AWS::Route53::RecordSet", {
@@ -39,7 +39,7 @@ test("Should create A record for www subdomain with 127.0.0.1 in cdk.api.aremedi
 
 test("Should create NS record for cdk in api.aremedia.net.au hosted zone", () => {
   const app = new cdk.App();
-  const stack = new Route53Stack(app, "MyTestStack", { env });
+  const stack = new Route53Stack(app, "Route53TestStack", { env });
   const template = Template.fromStack(stack);
 
   template.hasResourceProperties("AWS::Route53::RecordSet", {
